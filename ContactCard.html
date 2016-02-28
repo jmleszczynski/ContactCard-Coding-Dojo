@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="JonMichael's Contact Card Assignment for Advanced jQuery">
+		<meta name="keywords" content="JonMichael,AdvancedjQuery,jQuery,ContactCard,Coding">
+		<title>JonMichael's ContactCard Assignment</title>
+		<link rel="stylesheet" type="text/css" href="ContactCard.css">
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".button").click(function(){
+					$("#cards").append("<div class='contact_info'>" + $(".first").val() + " " + $(".last").val() + "<br>Click for description" + "<p class='description hidden'>" + $(".description").val() + "</p>" + "</div>");
+					return false;
+				});
+
+				$("#cards").on("click", ".contact_info", function(){
+					$(this).find("p.description").toggleClass("hidden");
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div  id="container">
+			<div id="enter">
+				<div id="name">
+					<form>
+						First Name: <input type="text" name="first_name" class="first"><br>
+						Last Name: <input type="text" name="last_name" class="last"><br>
+					</form>
+				</div>
+				<div id="descript">
+					<form>
+						Description: <br>
+						<textarea rows="4" cols="50" placeholder="Enter Description:" class="description"></textarea>
+					</form>
+				</div>
+				<button type="button" class="button">Add User</button>
+			</div>
+			<div id="cards">
+
+			</div>
+		</div>
+	</body>
+</html>
